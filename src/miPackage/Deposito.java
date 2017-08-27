@@ -22,7 +22,6 @@ public class Deposito {
 		}
 			
 		
-		
 		sc.close();
 	}
 	
@@ -38,14 +37,26 @@ public class Deposito {
 	
 	public int Apilar(){
 		int cantidadPilas = 0;
-		Mesada base = this.listaMesa.removeFirst();
+		Mesada base;
+		
 		
 		while(this.listaMesa.size() > 1){
-			for (Mesada mesada : listaMesa) {
+			base = this.listaMesa.removeFirst();
+			int cant = this.listaMesa.size();
+			
+			for (int i = 0; i < cant; i++) {
+				Mesada mesada = this.listaMesa.get(i);
 				
+				if (mesada.EntraEn(base)){
+					base = mesada;
+					this.listaMesa.remove(i);
+					i--;
+					cant--;
+				}
 			}
+			cantidadPilas++;
 		}
 		
-		return cantidadPilas;
+		return (this.listaMesa.size() == 1)? ++cantidadPilas : cantidadPilas;
 	}
 }

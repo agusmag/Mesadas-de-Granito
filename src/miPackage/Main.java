@@ -6,13 +6,12 @@ public class Main {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		
-		Deposito depo = new Deposito("./IN/LoteBase.txt");
+		Deposito depo = new Deposito("./IN/Lote3.txt");
 		
-		depo.Mostrar();
 		depo.Ordenar();
-		System.out.println("---------------------------");
 		depo.Mostrar();
 		
+		System.out.println("La cantidad de pilas son:" + depo.Apilar());
 	}
 
 }
